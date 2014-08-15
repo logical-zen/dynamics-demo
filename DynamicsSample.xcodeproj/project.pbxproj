@@ -7,10 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		15E7D38A199D439D002BD25C /* GravityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 15E7D389199D439D002BD25C /* GravityViewController.m */; };
+		15E7D38D199D4C23002BD25C /* AttachmentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 15E7D38C199D4C23002BD25C /* AttachmentViewController.m */; };
+		15E7D398199D5F78002BD25C /* PushViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 15E7D397199D5F78002BD25C /* PushViewController.m */; };
+		15E7D39C199D5FA0002BD25C /* SnapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 15E7D39B199D5FA0002BD25C /* SnapViewController.m */; };
+		15E7D39F199D9496002BD25C /* CollisionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 15E7D39E199D9496002BD25C /* CollisionViewController.m */; };
 		15F86AE8199D427000D40033 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 15F86AE7199D427000D40033 /* main.m */; };
 		15F86AEB199D427000D40033 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 15F86AEA199D427000D40033 /* AppDelegate.m */; };
 		15F86AED199D427000D40033 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 15F86AEC199D427000D40033 /* Images.xcassets */; };
 		15F86AF9199D427100D40033 /* DynamicsSampleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 15F86AF8199D427100D40033 /* DynamicsSampleTests.m */; };
+		15F86B03199D429300D40033 /* Storyboard-iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 15F86B02199D429300D40033 /* Storyboard-iPhone.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -24,6 +30,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		15E7D388199D439D002BD25C /* GravityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GravityViewController.h; path = "View Controllers/GravityViewController.h"; sourceTree = "<group>"; };
+		15E7D389199D439D002BD25C /* GravityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GravityViewController.m; path = "View Controllers/GravityViewController.m"; sourceTree = "<group>"; };
+		15E7D38B199D4C23002BD25C /* AttachmentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AttachmentViewController.h; path = "View Controllers/AttachmentViewController.h"; sourceTree = "<group>"; };
+		15E7D38C199D4C23002BD25C /* AttachmentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AttachmentViewController.m; path = "View Controllers/AttachmentViewController.m"; sourceTree = "<group>"; };
+		15E7D396199D5F78002BD25C /* PushViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PushViewController.h; path = "View Controllers/PushViewController.h"; sourceTree = "<group>"; };
+		15E7D397199D5F78002BD25C /* PushViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PushViewController.m; path = "View Controllers/PushViewController.m"; sourceTree = "<group>"; };
+		15E7D39A199D5FA0002BD25C /* SnapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SnapViewController.h; path = "View Controllers/SnapViewController.h"; sourceTree = "<group>"; };
+		15E7D39B199D5FA0002BD25C /* SnapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SnapViewController.m; path = "View Controllers/SnapViewController.m"; sourceTree = "<group>"; };
+		15E7D39D199D9496002BD25C /* CollisionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CollisionViewController.h; path = "View Controllers/CollisionViewController.h"; sourceTree = "<group>"; };
+		15E7D39E199D9496002BD25C /* CollisionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CollisionViewController.m; path = "View Controllers/CollisionViewController.m"; sourceTree = "<group>"; };
 		15F86AE2199D427000D40033 /* DynamicsSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DynamicsSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		15F86AE6199D427000D40033 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		15F86AE7199D427000D40033 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -33,6 +49,7 @@
 		15F86AF2199D427100D40033 /* DynamicsSampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DynamicsSampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		15F86AF7199D427100D40033 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		15F86AF8199D427100D40033 /* DynamicsSampleTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DynamicsSampleTests.m; sourceTree = "<group>"; };
+		15F86B02199D429300D40033 /* Storyboard-iPhone.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = "Storyboard-iPhone.storyboard"; path = "../Storyboard-iPhone.storyboard"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +70,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		15E7D399199D5F89002BD25C /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				15E7D388199D439D002BD25C /* GravityViewController.h */,
+				15E7D389199D439D002BD25C /* GravityViewController.m */,
+				15E7D38B199D4C23002BD25C /* AttachmentViewController.h */,
+				15E7D38C199D4C23002BD25C /* AttachmentViewController.m */,
+				15E7D396199D5F78002BD25C /* PushViewController.h */,
+				15E7D397199D5F78002BD25C /* PushViewController.m */,
+				15E7D39A199D5FA0002BD25C /* SnapViewController.h */,
+				15E7D39B199D5FA0002BD25C /* SnapViewController.m */,
+				15E7D39D199D9496002BD25C /* CollisionViewController.h */,
+				15E7D39E199D9496002BD25C /* CollisionViewController.m */,
+			);
+			name = "View Controllers";
+			sourceTree = "<group>";
+		};
 		15F86AD9199D427000D40033 = {
 			isa = PBXGroup;
 			children = (
@@ -77,6 +111,8 @@
 				15F86AE9199D427000D40033 /* AppDelegate.h */,
 				15F86AEA199D427000D40033 /* AppDelegate.m */,
 				15F86AEC199D427000D40033 /* Images.xcassets */,
+				15F86B02199D429300D40033 /* Storyboard-iPhone.storyboard */,
+				15E7D399199D5F89002BD25C /* View Controllers */,
 				15F86AE5199D427000D40033 /* Supporting Files */,
 			);
 			path = DynamicsSample;
@@ -187,6 +223,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				15F86B03199D429300D40033 /* Storyboard-iPhone.storyboard in Resources */,
 				15F86AED199D427000D40033 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -206,7 +243,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				15F86AEB199D427000D40033 /* AppDelegate.m in Sources */,
+				15E7D398199D5F78002BD25C /* PushViewController.m in Sources */,
+				15E7D38D199D4C23002BD25C /* AttachmentViewController.m in Sources */,
 				15F86AE8199D427000D40033 /* main.m in Sources */,
+				15E7D39C199D5FA0002BD25C /* SnapViewController.m in Sources */,
+				15E7D39F199D9496002BD25C /* CollisionViewController.m in Sources */,
+				15E7D38A199D439D002BD25C /* GravityViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -313,6 +355,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = DynamicsSample/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -324,6 +367,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = DynamicsSample/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -384,6 +428,7 @@
 				15F86AFE199D427100D40033 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		15F86AFF199D427100D40033 /* Build configuration list for PBXNativeTarget "DynamicsSampleTests" */ = {
 			isa = XCConfigurationList;
@@ -392,6 +437,7 @@
 				15F86B01199D427100D40033 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
