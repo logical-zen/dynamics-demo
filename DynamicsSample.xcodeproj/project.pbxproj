@@ -7,9 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1526D27019AA942F00A3D238 /* InstantaneousPushViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1526D26F19AA942F00A3D238 /* InstantaneousPushViewController.m */; };
 		15E7D38A199D439D002BD25C /* GravityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 15E7D389199D439D002BD25C /* GravityViewController.m */; };
 		15E7D38D199D4C23002BD25C /* AttachmentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 15E7D38C199D4C23002BD25C /* AttachmentViewController.m */; };
-		15E7D398199D5F78002BD25C /* PushViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 15E7D397199D5F78002BD25C /* PushViewController.m */; };
+		15E7D398199D5F78002BD25C /* ContinuousPushViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 15E7D397199D5F78002BD25C /* ContinuousPushViewController.m */; };
 		15E7D39C199D5FA0002BD25C /* SnapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 15E7D39B199D5FA0002BD25C /* SnapViewController.m */; };
 		15E7D39F199D9496002BD25C /* CollisionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 15E7D39E199D9496002BD25C /* CollisionViewController.m */; };
 		15F86AE8199D427000D40033 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 15F86AE7199D427000D40033 /* main.m */; };
@@ -30,12 +31,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1526D26E19AA942F00A3D238 /* InstantaneousPushViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = InstantaneousPushViewController.h; path = "View Controllers/InstantaneousPushViewController.h"; sourceTree = "<group>"; };
+		1526D26F19AA942F00A3D238 /* InstantaneousPushViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = InstantaneousPushViewController.m; path = "View Controllers/InstantaneousPushViewController.m"; sourceTree = "<group>"; };
 		15E7D388199D439D002BD25C /* GravityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GravityViewController.h; path = "View Controllers/GravityViewController.h"; sourceTree = "<group>"; };
 		15E7D389199D439D002BD25C /* GravityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GravityViewController.m; path = "View Controllers/GravityViewController.m"; sourceTree = "<group>"; };
 		15E7D38B199D4C23002BD25C /* AttachmentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AttachmentViewController.h; path = "View Controllers/AttachmentViewController.h"; sourceTree = "<group>"; };
 		15E7D38C199D4C23002BD25C /* AttachmentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AttachmentViewController.m; path = "View Controllers/AttachmentViewController.m"; sourceTree = "<group>"; };
-		15E7D396199D5F78002BD25C /* PushViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PushViewController.h; path = "View Controllers/PushViewController.h"; sourceTree = "<group>"; };
-		15E7D397199D5F78002BD25C /* PushViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PushViewController.m; path = "View Controllers/PushViewController.m"; sourceTree = "<group>"; };
+		15E7D396199D5F78002BD25C /* ContinuousPushViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ContinuousPushViewController.h; path = "View Controllers/ContinuousPushViewController.h"; sourceTree = "<group>"; };
+		15E7D397199D5F78002BD25C /* ContinuousPushViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ContinuousPushViewController.m; path = "View Controllers/ContinuousPushViewController.m"; sourceTree = "<group>"; };
 		15E7D39A199D5FA0002BD25C /* SnapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SnapViewController.h; path = "View Controllers/SnapViewController.h"; sourceTree = "<group>"; };
 		15E7D39B199D5FA0002BD25C /* SnapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SnapViewController.m; path = "View Controllers/SnapViewController.m"; sourceTree = "<group>"; };
 		15E7D39D199D9496002BD25C /* CollisionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CollisionViewController.h; path = "View Controllers/CollisionViewController.h"; sourceTree = "<group>"; };
@@ -73,14 +76,16 @@
 		15E7D399199D5F89002BD25C /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				15E7D388199D439D002BD25C /* GravityViewController.h */,
-				15E7D389199D439D002BD25C /* GravityViewController.m */,
-				15E7D38B199D4C23002BD25C /* AttachmentViewController.h */,
-				15E7D38C199D4C23002BD25C /* AttachmentViewController.m */,
-				15E7D396199D5F78002BD25C /* PushViewController.h */,
-				15E7D397199D5F78002BD25C /* PushViewController.m */,
 				15E7D39A199D5FA0002BD25C /* SnapViewController.h */,
 				15E7D39B199D5FA0002BD25C /* SnapViewController.m */,
+				15E7D388199D439D002BD25C /* GravityViewController.h */,
+				15E7D389199D439D002BD25C /* GravityViewController.m */,
+				15E7D396199D5F78002BD25C /* ContinuousPushViewController.h */,
+				15E7D397199D5F78002BD25C /* ContinuousPushViewController.m */,
+				1526D26E19AA942F00A3D238 /* InstantaneousPushViewController.h */,
+				1526D26F19AA942F00A3D238 /* InstantaneousPushViewController.m */,
+				15E7D38B199D4C23002BD25C /* AttachmentViewController.h */,
+				15E7D38C199D4C23002BD25C /* AttachmentViewController.m */,
 				15E7D39D199D9496002BD25C /* CollisionViewController.h */,
 				15E7D39E199D9496002BD25C /* CollisionViewController.m */,
 			);
@@ -243,10 +248,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				15F86AEB199D427000D40033 /* AppDelegate.m in Sources */,
-				15E7D398199D5F78002BD25C /* PushViewController.m in Sources */,
+				15E7D398199D5F78002BD25C /* ContinuousPushViewController.m in Sources */,
 				15E7D38D199D4C23002BD25C /* AttachmentViewController.m in Sources */,
 				15F86AE8199D427000D40033 /* main.m in Sources */,
 				15E7D39C199D5FA0002BD25C /* SnapViewController.m in Sources */,
+				1526D27019AA942F00A3D238 /* InstantaneousPushViewController.m in Sources */,
 				15E7D39F199D9496002BD25C /* CollisionViewController.m in Sources */,
 				15E7D38A199D439D002BD25C /* GravityViewController.m in Sources */,
 			);

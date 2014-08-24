@@ -1,5 +1,5 @@
 //
-//  PushViewController.h
+//  ContinuousPushViewController.h
 //  DynamicsSample
 //
 //  Created by Andria Jensen on 8/14/14.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PushViewController : UIViewController
+@interface ContinuousPushViewController : UIViewController
 
 @end

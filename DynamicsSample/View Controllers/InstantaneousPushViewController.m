@@ -1,49 +1,48 @@
 //
-//  GravityViewController.m
+//  InstantaneousPushViewController.m
 //  DynamicsSample
 //
-//  Created by Andria Jensen on 8/14/14.
+//  Created by Andria Jensen on 8/24/14.
 //  Copyright (c) 2014 Logical Zen, LLC. All rights reserved.
 //
 
-#import "GravityViewController.h"
+#import "InstantaneousPushViewController.h"
 
-@interface GravityViewController ()
+@interface InstantaneousPushViewController ()
 
-// the dynamic animator and its gravity behavior
+// the dynamic animator and its push behavior
 @property (strong, nonatomic) UIDynamicAnimator *animator;
-@property (strong, nonatomic) UIGravityBehavior *gravityBehavior;
+@property (strong, nonatomic) UIPushBehavior *instantaneousPushBehavior;
 
 // snap behaviors used in the reset
 @property (strong, nonatomic) UISnapBehavior *largeViewSnapBehavior;
 @property (strong, nonatomic) UISnapBehavior *smallViewSnapBehavior;
 
-// the dynamic views which have gravity applied
+// the dynamic views which have the push applied
 @property (strong, nonatomic) IBOutlet UIButton *largeView;
 @property (strong, nonatomic) IBOutlet UIButton *smallView;
 
-// sliders to adjust the direction of the gravitational force
+// sliders to control the push direction
 @property (strong, nonatomic) IBOutlet UISlider *dxSlider;
 @property (strong, nonatomic) IBOutlet UISlider *dySlider;
 @property (strong, nonatomic) IBOutlet UILabel *dxLabel;
 @property (strong, nonatomic) IBOutlet UILabel *dyLabel;
 
-// switch to turn gravity on/off
-@property (strong, nonatomic) IBOutlet UISwitch *gravitySwitch;
-
 @end
 
-@implementation GravityViewController
+@implementation InstantaneousPushViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    
     // create tha animator and have it use the entire view for animations
     self.animator = [[UIDynamicAnimator alloc] initWithReferenceView:self.view];
-
-    // create the gravity behavior and give it two views to use
-    self.gravityBehavior = [[UIGravityBehavior alloc] initWithItems:@[self.largeView, self.smallView]];
-
+    
+    // create the push behavior and attach it to the animator
+    self.instantaneousPushBehavior = [[UIPushBehavior alloc] initWithItems:@[self.smallView, self.largeView]
+                                                                      mode:UIPushBehaviorModeInstantaneous];
+    [self.animator addBehavior:self.instantaneousPushBehavior];
+    
     // setup snap behaviors to the dynamic view's original center positions
     self.largeViewSnapBehavior = [[UISnapBehavior alloc] initWithItem:self.largeView
                                                           snapToPoint:self.largeView.center];
@@ -51,51 +50,43 @@
     self.smallViewSnapBehavior = [[UISnapBehavior alloc] initWithItem:self.smallView
                                                           snapToPoint:self.smallView.center];
 
-    // start with all default values
+    // start with default values
     [self reset:nil];
 }
 
-- (IBAction)updateGravityBehavior:(id)sender {
-    // if we're turning on gravity, remove the snap behaviors
-    if (self.gravitySwitch.on) {
-        [self.animator removeBehavior:self.smallViewSnapBehavior];
-        [self.animator removeBehavior:self.largeViewSnapBehavior];
-    }
+- (IBAction)updatePushBehavior:(id)sender {
+    // update the push direction based on the slider values
+    self.instantaneousPushBehavior.pushDirection = CGVectorMake(self.dxSlider.value, self.dySlider.value);
     
-    // update the gravity direction based on the slider values
-    self.gravityBehavior.gravityDirection = CGVectorMake(self.dxSlider.value, self.dySlider.value);
-
     // update the slider value labels
     self.dxLabel.text = [NSString stringWithFormat:@"%.1f", self.dxSlider.value];
     self.dyLabel.text = [NSString stringWithFormat:@"%.1f", self.dySlider.value];
+}
+
+- (IBAction)applyPush:(id)sender {
+    // in case the snap behaviors are currently applied,
+    // remove them so the push will be effective
+    [self.animator removeBehavior:self.smallViewSnapBehavior];
+    [self.animator removeBehavior:self.largeViewSnapBehavior];
+    
+    // for instantaneous, a force is applied only once when active is switched ON.
+    // then, active is toggled back off immediately after the force is applied
+    // setting active to YES applies the force again
+    
+    self.instantaneousPushBehavior.active = YES;
 }
 
 - (IBAction)reset:(id)sender {
     // snap the views back to the center
     [self.animator addBehavior:self.largeViewSnapBehavior];
     [self.animator addBehavior:self.smallViewSnapBehavior];
-
-    // turn gravity off
-    self.gravitySwitch.on = NO;
-    [self.animator removeBehavior:self.gravityBehavior];
-
-    // reset to the default gravity direction values
+    
+    // reset to the default push direction values
     self.dxSlider.value = 0.0;
     self.dySlider.value = 0.0;
-    
-    [self updateGravityBehavior:nil];
-}
 
-- (IBAction)toggleGravity:(id)sender {
-    // remove gravity if it's there, otherwise add it
-    if (self.gravityBehavior.dynamicAnimator) {
-        [self.animator removeBehavior:self.gravityBehavior];
-    }
-    else {
-        [self.animator addBehavior:self.gravityBehavior];
-    }
-    
-    [self updateGravityBehavior:nil];
+    // update the push direction settings
+    [self updatePushBehavior:nil];
 }
 
 @end

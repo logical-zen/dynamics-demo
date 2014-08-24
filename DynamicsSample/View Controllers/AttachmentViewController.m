@@ -68,18 +68,20 @@
         [weakSelf drawAttachmentLine];
     };
     
-        // setup snap behaviors to the dynamic view's original center positions
+    // setup snap behaviors to the dynamic views' original center positions
     self.blueViewSnapBehavior = [[UISnapBehavior alloc] initWithItem:self.blueView
                                                          snapToPoint:self.blueView.center];
 
     self.orangeViewSnapBehavior = [[UISnapBehavior alloc] initWithItem:self.orangeView
                                                            snapToPoint:self.orangeView.center];
     
+    // start with the default values
     [self reset:nil];
 }
 
 
 - (IBAction)reset:(id)sender {
+    // temporarily remove the attachment while we reset
     [self.animator removeBehavior:self.viewsAttachment];
     
     // initialize the stepper values
@@ -89,8 +91,11 @@
     
     [self updateAttachmentValues:nil];
     
+    // snap the views back to their origin
     [self.animator addBehavior:self.blueViewSnapBehavior];
     [self.animator addBehavior:self.orangeViewSnapBehavior];
+    
+    // add the attachment back after the reset is done
     [self.animator addBehavior:self.viewsAttachment];
 }
 
@@ -122,22 +127,25 @@
 
 
 - (IBAction)updateAttachmentValues:(id)sender {
+    // update the attachment settings based on the stepper values
     self.viewsAttachment.length = self.lengthStepper.value;
     self.viewsAttachment.frequency = self.frequencyStepper.value;
     self.viewsAttachment.damping = self.dampingStepper.value;
     
+    // update the labels based on the stepper values
     self.lengthLabel.text = [NSString stringWithFormat:@"%.1f", self.viewsAttachment.length];
     self.frequencyLabel.text = [NSString stringWithFormat:@"%.1f", self.viewsAttachment.frequency];
     self.dampingLabel.text = [NSString stringWithFormat:@"%.1f", self.viewsAttachment.damping];
 }
 
 - (void) drawAttachmentLine {
-    
+    // create a path joining the center of both views
     UIBezierPath *bezierPath = [UIBezierPath bezierPath];
     [bezierPath moveToPoint:self.blueView.center];
     [bezierPath addLineToPoint:self.orangeView.center];
     [bezierPath closePath];
     
+    // assign the correct appearance to the line and display it
     self.lineLayer.lineCap = kCALineCapRound;
     self.lineLayer.lineJoin = kCALineJoinRound;
     self.lineLayer.lineWidth = 5.0;

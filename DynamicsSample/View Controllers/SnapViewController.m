@@ -10,11 +10,14 @@
 
 @interface SnapViewController ()
 
-// the dynamic animator and its attachment behaviors
+// the dynamic animator and its snap behavior
 @property (strong, nonatomic) UIDynamicAnimator *animator;
 @property (strong, nonatomic) UISnapBehavior *snapBehavior;
 
+// the dynamic view the snap will be applied to
 @property (strong, nonatomic) IBOutlet UIButton *dynamicView;
+
+// slider to control the damping value of the snap
 @property (strong, nonatomic) IBOutlet UISlider *dampingSlider;
 @property (strong, nonatomic) IBOutlet UILabel *dampingLabel;
 
@@ -45,7 +48,10 @@
 }
 
 - (IBAction)setDamping:(id)sender {
+    // adjust the snap's damping according to the slider
     self.snapBehavior.damping = self.dampingSlider.value;
+    
+    // update the label
     self.dampingLabel.text = [NSString stringWithFormat:@"damping: %.2f", self.dampingSlider.value];
 }
 

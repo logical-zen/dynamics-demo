@@ -16,6 +16,7 @@
 @property (strong, nonatomic) UIPushBehavior *pushBehavior;
 @property (strong, nonatomic) UIDynamicItemBehavior *itemBehavior;
 
+// boundary views to denote the top and bottom collision boundaries
 @property (strong, nonatomic) IBOutlet UIView *topBoundaryView;
 @property (strong, nonatomic) IBOutlet UIView *bottomBoundaryView;
 
@@ -33,12 +34,18 @@
     self.collisionBehavior = [[UICollisionBehavior alloc] initWithItems:@[]];
     self.collisionBehavior.translatesReferenceBoundsIntoBoundary = YES;
     
-    // add two boundary lines, using the top edges of the dark gray subviews
+    // add two boundary lines, using the top/bottom edges of the dark gray subviews
     [self addCollisionBoundaryForTopEdgeOfView:self.topBoundaryView
-                                withIdentifier:@"topBoundary"];
+                                withIdentifier:@"topViewTopBoundary"];
+    
+    //[self addCollisionBoundaryForBottomEdgeOfView:self.topBoundaryView
+    //                               withIdentifier:@"topViewBottomBoundary"];
 
     [self addCollisionBoundaryForTopEdgeOfView:self.bottomBoundaryView
-                                withIdentifier:@"bottomBoundary"];
+                                withIdentifier:@"bottomViewTopBoundary"];
+
+    //[self addCollisionBoundaryForBottomEdgeOfView:self.bottomBoundaryView
+    //                               withIdentifier:@"bottomViewBottomBoundary"];
     
     // add the collision behavior to the animator
     [self.animator addBehavior:self.collisionBehavior];
@@ -52,7 +59,7 @@
 
     
     // create an instantaneous push behavior
-    // we'll apply this to each view as its created to keep things moving around
+    // we'll apply this to each view as it's created to keep things moving around
     self.pushBehavior = [[UIPushBehavior alloc] initWithItems:@[]
                                                          mode:UIPushBehaviorModeInstantaneous];
     
@@ -61,7 +68,9 @@
 
 }
 
-- (void) addCollisionBoundaryForTopEdgeOfView:(UIView *)view withIdentifier:(NSString *)identifier {
+- (void) addCollisionBoundaryForTopEdgeOfView:(UIView *)view
+                               withIdentifier:(NSString *)identifier {
+    
     CGPoint origin = view.frame.origin;
     CGPoint topRightPoint = CGPointMake(origin.x + view.frame.size.width, origin.y);
     
@@ -72,6 +81,22 @@
                                               toPoint:topRightPoint];
     
 }
+
+- (void) addCollisionBoundaryForBottomEdgeOfView:(UIView *)view
+                                  withIdentifier:(NSString *)identifier {
+    
+    CGPoint origin = view.frame.origin;
+    CGPoint bottomLeftPoint = CGPointMake(origin.x, origin.y + view.frame.size.height);
+    CGPoint bottomRightPoint = CGPointMake(origin.x + view.frame.size.width, bottomLeftPoint.y);
+    
+    // use the bottom left and bottom right points of the view to create a boundary
+    // which would appear to be the view's bottom edge
+    [self.collisionBehavior addBoundaryWithIdentifier:identifier
+                                            fromPoint:bottomLeftPoint
+                                              toPoint:bottomRightPoint];
+    
+}
+
 
 - (IBAction)reset:(id)sender {
     // remove all the collision views
