@@ -27,7 +27,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    // create tha animator and have it use the entire view for animations
+    // create the animator and have it use the entire view for animations
     self.animator = [[UIDynamicAnimator alloc] initWithReferenceView:self.view];
     
     // create a collision behavior and set it to use the reference view as its boundary box
@@ -42,12 +42,13 @@
                                 withIdentifier:@"bottomViewTopBoundary"];
 
     
+    /*
     [self addCollisionBoundaryForBottomEdgeOfView:self.topBoundaryView
                                    withIdentifier:@"topViewBottomBoundary"];
 
     [self addCollisionBoundaryForBottomEdgeOfView:self.bottomBoundaryView
                                    withIdentifier:@"bottomViewBottomBoundary"];
-    
+    */
     
     // add the collision behavior to the animator
     [self.animator addBehavior:self.collisionBehavior];

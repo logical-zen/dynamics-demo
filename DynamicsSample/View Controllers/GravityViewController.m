@@ -38,7 +38,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    // create tha animator and have it use the entire view for animations
+    // create the animator and have it use the entire view for animations
     self.animator = [[UIDynamicAnimator alloc] initWithReferenceView:self.view];
 
     // create the gravity behavior and give it two views to use
