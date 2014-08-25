@@ -54,15 +54,6 @@
     [self reset:nil];
 }
 
-- (IBAction)updatePushBehavior:(id)sender {
-    // update the push direction based on the slider values
-    self.instantaneousPushBehavior.pushDirection = CGVectorMake(self.dxSlider.value, self.dySlider.value);
-    
-    // update the slider value labels
-    self.dxLabel.text = [NSString stringWithFormat:@"%.1f", self.dxSlider.value];
-    self.dyLabel.text = [NSString stringWithFormat:@"%.1f", self.dySlider.value];
-}
-
 - (IBAction)applyPush:(id)sender {
     // in case the snap behaviors are currently applied,
     // remove them so the push will be effective
@@ -74,6 +65,15 @@
     // setting active to YES applies the force again
     
     self.instantaneousPushBehavior.active = YES;
+}
+
+- (IBAction)updatePushBehavior:(id)sender {
+    // update the push direction based on the slider values
+    self.instantaneousPushBehavior.pushDirection = CGVectorMake(self.dxSlider.value, self.dySlider.value);
+    
+    // update the slider value labels
+    self.dxLabel.text = [NSString stringWithFormat:@"%.1f", self.dxSlider.value];
+    self.dyLabel.text = [NSString stringWithFormat:@"%.1f", self.dySlider.value];
 }
 
 - (IBAction)reset:(id)sender {

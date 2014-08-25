@@ -58,6 +58,19 @@
     [self reset:nil];
 }
 
+- (IBAction)togglePush:(id)sender {
+    // if we're turning on a push, remove the snap behaviors
+    if (self.activeSwitch.on) {
+        [self.animator removeBehavior:self.smallViewSnapBehavior];
+        [self.animator removeBehavior:self.largeViewSnapBehavior];
+    }
+    
+    // for continous, a constant force is applied as long as active is YES
+    // when active is NO, the force is no longer applied
+    
+    self.continuousPushBehavior.active = self.activeSwitch.on;
+}
+
 - (IBAction)updatePushBehavior:(id)sender {
     // update the push direction based on the slider values
     self.continuousPushBehavior.pushDirection = CGVectorMake(self.dxSlider.value, self.dySlider.value);
@@ -65,19 +78,6 @@
     // update the slider value labels
     self.dxLabel.text = [NSString stringWithFormat:@"%.1f", self.dxSlider.value];
     self.dyLabel.text = [NSString stringWithFormat:@"%.1f", self.dySlider.value];
-}
-
-- (IBAction)togglePush:(id)sender {
-    // if we're turning on a push, remove the snap behaviors
-    if (self.activeSwitch.on) {
-        [self.animator removeBehavior:self.smallViewSnapBehavior];
-        [self.animator removeBehavior:self.largeViewSnapBehavior];
-    }
-
-    // for continous, a constant force is applied as long as active is YES
-    // when active is NO, the force is no longer applied
-
-    self.continuousPushBehavior.active = !self.continuousPushBehavior.active;
 }
 
 - (IBAction)reset:(id)sender {

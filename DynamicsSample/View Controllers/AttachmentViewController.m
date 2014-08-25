@@ -79,26 +79,6 @@
     [self reset:nil];
 }
 
-
-- (IBAction)reset:(id)sender {
-    // temporarily remove the attachment while we reset
-    [self.animator removeBehavior:self.viewsAttachment];
-    
-    // initialize the stepper values
-    self.lengthStepper.value = 150;
-    self.frequencyStepper.value = 0.0;
-    self.dampingStepper.value = 0.0;
-    
-    [self updateAttachmentValues:nil];
-    
-    // snap the views back to their origin
-    [self.animator addBehavior:self.blueViewSnapBehavior];
-    [self.animator addBehavior:self.orangeViewSnapBehavior];
-    
-    // add the attachment back after the reset is done
-    [self.animator addBehavior:self.viewsAttachment];
-}
-
 - (IBAction) handlePanGesture:(UIPanGestureRecognizer *)gesture {
     CGPoint touchPoint = [gesture locationInView:self.view];
     UIView* draggedView = gesture.view;
@@ -125,7 +105,6 @@
     }
 }
 
-
 - (IBAction)updateAttachmentValues:(id)sender {
     // update the attachment settings based on the stepper values
     self.viewsAttachment.length = self.lengthStepper.value;
@@ -136,6 +115,25 @@
     self.lengthLabel.text = [NSString stringWithFormat:@"%.1f", self.viewsAttachment.length];
     self.frequencyLabel.text = [NSString stringWithFormat:@"%.1f", self.viewsAttachment.frequency];
     self.dampingLabel.text = [NSString stringWithFormat:@"%.1f", self.viewsAttachment.damping];
+}
+
+- (IBAction)reset:(id)sender {
+    // temporarily remove the attachment while we reset
+    [self.animator removeBehavior:self.viewsAttachment];
+    
+    // initialize the stepper values
+    self.lengthStepper.value = 150;
+    self.frequencyStepper.value = 0.0;
+    self.dampingStepper.value = 0.0;
+    
+    [self updateAttachmentValues:nil];
+    
+    // snap the views back to their origin
+    [self.animator addBehavior:self.blueViewSnapBehavior];
+    [self.animator addBehavior:self.orangeViewSnapBehavior];
+    
+    // add the attachment back after the reset is done
+    [self.animator addBehavior:self.viewsAttachment];
 }
 
 - (void) drawAttachmentLine {
@@ -152,7 +150,6 @@
     self.lineLayer.strokeColor = [UIColor darkGrayColor].CGColor;
     self.lineLayer.path = bezierPath.CGPath;
     [self.lineLayer setNeedsDisplay];
-    
 }
 
 @end

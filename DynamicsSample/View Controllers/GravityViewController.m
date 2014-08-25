@@ -55,6 +55,18 @@
     [self reset:nil];
 }
 
+- (IBAction)toggleGravity:(id)sender {
+    // add gravity if it's being turned on, otherwise remove it
+    if (self.gravitySwitch.on) {
+        [self.animator addBehavior:self.gravityBehavior];
+    }
+    else {
+        [self.animator removeBehavior:self.gravityBehavior];
+    }
+    
+    [self updateGravityBehavior:nil];
+}
+
 - (IBAction)updateGravityBehavior:(id)sender {
     // if we're turning on gravity, remove the snap behaviors
     if (self.gravitySwitch.on) {
@@ -86,16 +98,5 @@
     [self updateGravityBehavior:nil];
 }
 
-- (IBAction)toggleGravity:(id)sender {
-    // remove gravity if it's there, otherwise add it
-    if (self.gravityBehavior.dynamicAnimator) {
-        [self.animator removeBehavior:self.gravityBehavior];
-    }
-    else {
-        [self.animator addBehavior:self.gravityBehavior];
-    }
-    
-    [self updateGravityBehavior:nil];
-}
 
 @end

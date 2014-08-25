@@ -34,18 +34,20 @@
     self.collisionBehavior = [[UICollisionBehavior alloc] initWithItems:@[]];
     self.collisionBehavior.translatesReferenceBoundsIntoBoundary = YES;
     
-    // add two boundary lines, using the top/bottom edges of the dark gray subviews
+    // add boundary lines, using the top/bottom edges of the dark gray subviews
     [self addCollisionBoundaryForTopEdgeOfView:self.topBoundaryView
                                 withIdentifier:@"topViewTopBoundary"];
     
-    //[self addCollisionBoundaryForBottomEdgeOfView:self.topBoundaryView
-    //                               withIdentifier:@"topViewBottomBoundary"];
-
     [self addCollisionBoundaryForTopEdgeOfView:self.bottomBoundaryView
                                 withIdentifier:@"bottomViewTopBoundary"];
 
-    //[self addCollisionBoundaryForBottomEdgeOfView:self.bottomBoundaryView
-    //                               withIdentifier:@"bottomViewBottomBoundary"];
+    
+    [self addCollisionBoundaryForBottomEdgeOfView:self.topBoundaryView
+                                   withIdentifier:@"topViewBottomBoundary"];
+
+    [self addCollisionBoundaryForBottomEdgeOfView:self.bottomBoundaryView
+                                   withIdentifier:@"bottomViewBottomBoundary"];
+    
     
     // add the collision behavior to the animator
     [self.animator addBehavior:self.collisionBehavior];
@@ -97,6 +99,24 @@
     
 }
 
+- (IBAction)addAView:(id)sender {
+    // create a 30x30 red view and add it to our main view
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 30, 30)];
+    view.center = self.view.center;
+    view.backgroundColor = [UIColor redColor];
+    [self.view addSubview:view];
+    
+    // make the items elastic and give them some speed in a different direction to change things up
+    [self.itemBehavior addItem:view];
+    [self.itemBehavior addLinearVelocity:CGPointMake(-0.5, -0.5) forItem:view];
+    
+    // give all the views a little push to keep things moving
+    [self.pushBehavior addItem:view];
+    self.pushBehavior.active = YES;
+    
+    // add the new view to the collision behavior
+    [self.collisionBehavior addItem:view];
+}
 
 - (IBAction)reset:(id)sender {
     // remove all the collision views
@@ -104,25 +124,5 @@
         [obj removeFromSuperview];
     }];
 }
-
-- (IBAction)addAView:(id)sender {
-    // create a 30x30 red view and add it to our main view
-    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 30, 30)];
-    view.center = self.view.center;
-    view.backgroundColor = [UIColor redColor];
-    [self.view addSubview:view];
-
-    // make the items elastic and give them some speed in a different direction to change things up
-    [self.itemBehavior addItem:view];
-    [self.itemBehavior addLinearVelocity:CGPointMake(-0.5, -0.5) forItem:view];
-
-    // give all the views a little push to keep things moving
-    [self.pushBehavior addItem:view];
-    self.pushBehavior.active = YES;
-
-    // add the new view to the collision behavior
-    [self.collisionBehavior addItem:view];
-}
-
 
 @end
